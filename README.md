@@ -2,7 +2,9 @@
 A meet up app for board games 
 
 
-This project was bootstrapped with Create React App.
+
+
+# This project was bootstrapped with Create React App.
 
 Available Scripts
 In the project directory, you can run:
