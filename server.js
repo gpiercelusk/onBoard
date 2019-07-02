@@ -1,30 +1,31 @@
 const express = require('express');
 const connectDB = require('./config/db');
-// const mongoose = require('mongoose');
-// const routes = require('./routes');
 const path = require('path');
 
 const app = express();
-//connect database
-connectDB();
-// Define middleware here
-//app.use(express.urlencoded());
-app.use(express.json({ extended: true }));
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
-// Add routes, both API and view
-//app.use(routes);
-app.get('/', (req, res) => res.send('API Running'));
-// Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/onBoard', {
-//   useCreateIndex: true,
-//   useNewUrlParser: true
-// });
 
-const PORT = process.env.PORT || 3001;
-// Start the API server
-app.listen(PORT, () =>
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
-);
+// Connect Database
+connectDB();
+
+// Init Middleware
+app.use(express.json({ extended: false }));
+
+// Define Routes
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/profile', require('./routes/api/profile'));
+app.use('/api/posts', require('./routes/api/posts'));
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
