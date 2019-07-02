@@ -5,7 +5,7 @@ const connectDB = require('./config/db');
 const path = require('path');
 
 const app = express();
-
+//connect database
 connectDB();
 // Define middleware here
 //app.use(express.urlencoded());
@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 // Add routes, both API and view
-app.use(routes);
+//app.use(routes);
 app.get('/', (req, res) => res.send('API Running'));
 // Connect to the Mongo DB
 // mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/onBoard', {
