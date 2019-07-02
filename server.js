@@ -18,10 +18,10 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes);
 app.get('/', (req, res) => res.send('API Running'));
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/onBoard', {
-  useCreateIndex: true,
-  useNewUrlParser: true
-});
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/onBoard', {
+//   useCreateIndex: true,
+//   useNewUrlParser: true
+// });
 
 const PORT = process.env.PORT || 3001;
 // Start the API server
