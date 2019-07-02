@@ -1,6 +1,6 @@
 import React from 'react';
 import FormButtons from '../components/FormButtons';
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter } from 'react-router-dom';
 
 function Landing() {
   return (
@@ -13,12 +13,16 @@ function Landing() {
         <div className="buttons">
           <FormButtons />
           <div className="sign-in">
-            Already have an accout? <Link to="/signinpage"><strong>Sign in</strong></Link> here!
-                    </div>
+            Already have an accout?{' '}
+            <Link to="/signinpage">
+              <strong>Sign in</strong>
+            </Link>{' '}
+            here!
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Landing;
