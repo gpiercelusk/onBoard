@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 
 const User = require('../../models/User');
 //@route   post api/users
@@ -52,7 +52,7 @@ router.post(
       await user.save();
 
       //return jsonwebtoken
-      res.send('User route');
+      res.send('User registered');
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server error');
@@ -60,4 +60,4 @@ router.post(
   }
 );
 
-module.export = router;
+module.exports = router;
