@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://Pierce:Bunnies1@onboard-vrj6p.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://Pierce:Bunnies1@onboard-vrj6p.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
 }
