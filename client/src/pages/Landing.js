@@ -14,7 +14,7 @@ function Landing() {
           <FormButtons />
           <div className="sign-in">
             Already have an accout? <Link to="/signinpage"><strong>Sign in</strong></Link> here!
-                    </div>
+          </div>
         </div>
       </div>
     </div>
