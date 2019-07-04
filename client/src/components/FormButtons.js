@@ -7,7 +7,9 @@ function FormButtons() {
       <Link to='/signuppage'>
         <button className="singup-button">Sign Up</button>
       </Link>
-      <button className="singup-button">Continue as Guest</button>
+      <Link to='/feed'>
+        <button className="signup-button">Continue as Guest</button>
+      </Link>
     </div>
   )
 }
