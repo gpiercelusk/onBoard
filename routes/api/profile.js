@@ -49,6 +49,37 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
     const { location, status, games } = req.body;
+
+    // Build profile object
+    const profileFields = {};
+    profileFields.user = req.user.id;
+    if (location) profileFields.location = location;
+    if (status) profileFields.status = status;
+    if (games) {
+      profileFields.games = games.split(',').map(game => game.trim());
+    }
+    try {
+      let profile = await Profile.findOne({ user: req.user.id });
+
+      if (profile) {
+        await Profile.findOneAndUpdate(
+          { user: req.user.id },
+          { $set: profileFields },
+          { new: true }
+        );
+
+        return res.json(profile);
+      }
+
+      //create
+      profile = new Profile(profileFields);
+
+      await profile.save();
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
   }
 );
 module.exports = router;
