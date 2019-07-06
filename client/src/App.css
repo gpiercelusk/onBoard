@@ -21,7 +21,7 @@ body {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--danger-color);
   text-decoration: none;
 }
 
@@ -65,8 +65,8 @@ img {
   text-align: center;
 }
 
-.text-primary {
-  color: var(--primary-color);
+.text-danger {
+  color: var(--danger-color);
 }
 
 .text-dark {
