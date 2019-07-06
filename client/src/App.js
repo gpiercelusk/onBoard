@@ -1,33 +1,28 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
 //import Link from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Landing from './pages/Landing';
-import SignUpPage from './pages/SignUpPage';
-import SignInPage from './pages/SignInPage';
-import Feed from './pages/Feed';
-import Profile from './pages/Profile';
-import AddPost from './components/AddPost';
+import Navbar from './components/layout/Navbar';
+import Landing from './components/layout/Landing';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 
-function App() {
-  return (
-    <div className="App">
-      <div className="container">
-        <div className="wrapper">
-          <Router>
-            <Switch>
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/signuppage" component={SignUpPage} />
-              <Route exact path="/signinpage" component={SignInPage} />
-              <Route exact path="/feed" component={Feed} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/addpost" component={AddPost} />
-            </Switch>
-          </Router>
-        </div>
-      </div>
-    </div>
-  );
-}
+
+const App = () => (
+
+  <Router>
+    <Fragment>
+      <Navbar />
+      <Route exact path='/' component={Landing} />
+      <section className="container">
+        <Switch>
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/login' component={Login} />
+        </Switch>
+      </section>
+    </Fragment>
+  </Router>
+);
+
 
 export default App;
