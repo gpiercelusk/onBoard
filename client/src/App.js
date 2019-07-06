@@ -4,18 +4,25 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
-import SignUpPage from './pages/SignUpPage';
-import SignInPage from './pages/SignInPage';
-import Feed from './pages/Feed';
-import Profile from './pages/Profile';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
 
-const App = () => {
-  return (
+
+const App = () => (
+
+  <Router>
     <Fragment>
       <Navbar />
-      <Landing />
+      <Route exact path='/' component={Landing} />
+      <section className="container">
+        <Switch>
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/login' component={Login} />
+        </Switch>
+      </section>
     </Fragment>
-  );
-}
+  </Router>
+);
+
 
 export default App;
