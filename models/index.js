@@ -1,4 +1,4 @@
-// module.exports = {
-//   User: require("./localLogin"),
-//   Event: require("./event")
-// };
+module.exports = {
+  User: require('./localLogin'),
+  Event: require('./event')
+};
