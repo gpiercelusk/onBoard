@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//import Link from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Landing from './pages/Landing';
 import SignUpPage from './pages/SignUpPage';
 import SignInPage from './pages/SignInPage';
@@ -23,7 +24,6 @@ function App() {
           </Router>
         </div>
       </div>
-
     </div>
   );
 }
