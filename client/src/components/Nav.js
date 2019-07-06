@@ -5,7 +5,7 @@ function Nav() {
     return (
         <div className="nav-wrapper">
             <nav>
-                <Link to='/'>onBoard</Link>
+                <Link to='/'>Discover</Link>
                 <Link to='/profile'>Profile</Link>
                 <Link to='/menu'>Menu</Link>
             </nav>
