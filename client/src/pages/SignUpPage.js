@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import Nav from './components/Nav';
+import { Link, withRouter } from "react-router-dom";
 
 class SignUpPage extends Component {
   state = {
@@ -57,7 +58,9 @@ class SignUpPage extends Component {
               onChange={this.handleInput}
               placeholder="Enter Password"
             />
-            <button type='submit' onClick={this.handleFormSubmit}>Sign Up</button>
+            <Link to='/profile'>
+              <button type='submit' onClick={this.handleFormSubmit}>Sign Up</button>
+            </Link>
           </div>
         </div>
       </div>
