@@ -34,17 +34,20 @@ class MapSearch extends Component {
 
 	clearSearch = () => this.setState({ addressSearch: "", addEvent: "" });
 
+	
+
 	callGeocode = () => {
 		console.log("callGeocode is being used");
 		let location = this.state.addressSearch;
 		let self = this;
+		const gApi = process.env.REACT_APP_GOOGLEMAPS_API_KEY;
 		console.log("This address is being used" + location)
 
 		axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
 
 			params: {
 				address: location,
-				key: "AIzaSyAzzX20DZQR1yjzdUjGQR9fiyHqgBPY9bo"
+				key: gApi
 			}
 		})
 			.then(function (response) {
