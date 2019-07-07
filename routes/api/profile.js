@@ -39,7 +39,7 @@ router.post(
       check('status', 'Status is required')
         .not()
         .isEmpty(),
-      check('games', 'Games are required')
+      check('location', 'Location is required')
         .not()
         .isEmpty()
     ]

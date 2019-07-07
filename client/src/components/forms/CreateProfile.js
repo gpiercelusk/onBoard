@@ -1,9 +1,11 @@
 import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { createProfile, getCurrentProfile } from "../../actions/profile";
 
-const CreateProfile = props => {
+
+const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
     location: "",
     status: ""
@@ -18,7 +20,7 @@ const CreateProfile = props => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = e => {
     e.preventDefault();
-    //createProfile(formData, history);
+    createProfile(formData, history);
   };
 
   return (
@@ -48,7 +50,7 @@ const CreateProfile = props => {
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-            City & state suggested (eg. Boston, MA)
+            City & state suggested (eg. Durham, NC)
           </small>
         </div>
         <input type='submit' className='btn btn-primary my-1' />
@@ -61,7 +63,14 @@ const CreateProfile = props => {
 }
 
 CreateProfile.propTypes = {
-
-}
-
-export default CreateProfile
+  createProfile: PropTypes.func.isRequired,
+  // getCurrentProfile: PropTypes.func.isRequired,
+  // profile: PropTypes.object.isRequired,
+};
+// const mapStateToProps = state => ({
+//   profile: state.profile,
+// });
+export default connect(
+  null,
+  { createProfile },
+)(withRouter(CreateProfile));

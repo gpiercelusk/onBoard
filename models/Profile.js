@@ -6,7 +6,8 @@ const ProfileSchema = new mongoose.Schema({
     ref: 'user'
   },
   location: {
-    type: String
+    type: String,
+    required: true
   },
   status: {
     type: String,
@@ -16,7 +17,6 @@ const ProfileSchema = new mongoose.Schema({
     {
       title: {
         type: String,
-        required: true
       }
     }
   ],
