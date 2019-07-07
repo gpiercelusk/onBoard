@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Input, FormBtn } from "./SampleForm";
-// import Map from './Map'
-import GoogleMaps from './index.js'
+import Modal from "./Modal"
+import GoogleMaps from './GoogleMaps'
 import axios from 'axios'
 
-class Home extends Component {
+class MapSearch extends Component {
 
 	state = {
 		addressSearch: '',
@@ -13,26 +13,27 @@ class Home extends Component {
 		lng: '',
 		addEvent: '',
 		nameOfEvent: '',
-		geoCode: {}
+		geoCode: {},
+		isOpen: false
 	}
 
 	handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
+		const { name, value } = event.target;
+		this.setState({
+			[name]: value
+		});
 	};
 
 	handleFormSubmit = event => {
-        event.preventDefault();
-        this.setState({ address: this.state.addressSearch })
+		event.preventDefault();
+		this.setState({ address: this.state.addressSearch })
 		this.setState({ nameOfEvent: this.state.addEvent })
 		this.callGeocode();
-        this.clearSearch();
+		this.clearSearch();
 	}
-	
+
 	clearSearch = () => this.setState({ addressSearch: "", addEvent: "" });
-	
+
 	callGeocode = () => {
 		console.log("callGeocode is being used");
 		let location = this.state.addressSearch;
@@ -40,39 +41,41 @@ class Home extends Component {
 		console.log("This address is being used" + location)
 
 		axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-			
+
 			params: {
 				address: location,
 				key: "AIzaSyAzzX20DZQR1yjzdUjGQR9fiyHqgBPY9bo"
 			}
 		})
-		.then(function(response){
-			console.log(response);
-			console.log(response.data.results[0].formatted_address);
-			let lat = response.data.results[0].geometry.location.lat;
-			let lng = response.data.results[0].geometry.location.lng;
-			self.setState({geoCode: { lat: lat, lng: lng}})
-			self.setState({ lat: lat});
-			self.setState({ lng: lng});
-			self.setState({ address: response.data.results[0].formatted_address});
-
-		}).catch(function(error) {
-			console.log(error);
-		});
+			.then(function (response) {
+				console.log(response);
+				console.log(response.data.results[0].formatted_address);
+				let lat = response.data.results[0].geometry.location.lat;
+				let lng = response.data.results[0].geometry.location.lng;
+				self.setState({ geoCode: { lat: lat, lng: lng } })
+				self.setState({ lat: lat });
+				self.setState({ lng: lng });
+				self.setState({ address: response.data.results[0].formatted_address });
+			}).catch(function (error) {
+				console.log(error);
+			});
 	};
 
 	render() {
 		return (
 			<div>
+				<div className="App">
+					<button onClick={(e) => this.setState({ isOpen: true })}>Open Map</button>
+					<Modal isOpen={this.state.isOpen} onClose={(e) => this.setState({ isOpen: false })}>
+						<GoogleMaps
+							address={this.state.address}
+							event={this.state.nameOfEvent}
+							lat={this.state.lat}
+							lng={this.state.lng}
+							{...this.state.geoCode} />
+					</Modal>
+				</div>
 
-				<GoogleMaps
-					address={this.state.address}
-					event={this.state.nameOfEvent}
-					lat={this.state.lat}
-					lng={this.state.lng}
-					{...this.state.geoCode}
-
-					/>
 				<Input
 					value={this.state.addressSearch}
 					name="addressSearch"
@@ -93,10 +96,9 @@ class Home extends Component {
 				>
 					Search
                 </FormBtn>
-
 			</div>
 		);
 	}
 }
 
-export default Home;
+export default MapSearch;
