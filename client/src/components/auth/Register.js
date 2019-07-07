@@ -15,7 +15,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   const { name, email, password, password2 } = formData;
 
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value })
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -25,7 +26,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       register({ name, email, password });
     }
   };
-
   // Redirect if logged in
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />;
@@ -34,7 +34,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Fragment>
       <h1 className="large text-danger">Sign Up</h1>
-      <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
+      <p className="lead">
+        <i className="fas fa-user" /> Create Your Account
+          </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
@@ -55,8 +57,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             required />
           <small className="form-text"
           >This site uses Gravatar so if you want a profile image, use a
-            Gravatar email</small
-          >
+                Gravatar email
+            </small>
         </div>
         <div className="form-group">
           <input
@@ -86,6 +88,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     </Fragment>
   );
 };
+
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
