@@ -9,7 +9,7 @@ const Landing = () => {
         <div className="landing-inner">
           <h1 className="x-large"><i className="fas fa-dice-d20"></i> onBoard</h1>
           <p className="lead">
-            <h1>The best way to make a kickback less stressful</h1>
+            The best way to make a kickback less stressful
           </p>
           <div className="buttons">
             <Link to="/register" className="btn btn-danger">Sign Up</Link>
