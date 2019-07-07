@@ -12,10 +12,14 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  games: {
-    type: [String],
-    required: true
-  },
+  games: [
+    {
+      title: {
+        type: String,
+        required: true
+      }
+    }
+  ],
   date: {
     type: Date,
     default: Date.now
