@@ -35,11 +35,11 @@ function Map(props) {
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map))
-
+const gApi = process.env.REACT_APP_GOOGLEMAPS_API_KEY;
 function GoogleMaps(props) {
     return (
         <div style={{ width: '50vw', height: '50vh' }}>
-            <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAzzX20DZQR1yjzdUjGQR9fiyHqgBPY9bo`}
+            <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${gApi}`}
                 loadingElement={<div style={{ height: "100%" }} />}
                 containerElement={<div style={{ height: "100%" }} />}
                 mapElement={<div style={{ height: "100%" }} />}
