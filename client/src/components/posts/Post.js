@@ -17,7 +17,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
       <Fragment>
         <h1 className='large text-primary'>Posts</h1>
         <p className='lead'>
-          <i className='fas ffa-dice-d20' /> Find a Game to Play!
+          <i className='fas fa-dice-d20' /> Find a Game to Play!
       </p>
         {/* <PostForm /> */}
         <div className='posts'>
