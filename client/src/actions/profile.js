@@ -5,7 +5,6 @@ import {
   GET_PROFILE,
   GET_PROFILES,
   PROFILE_ERROR,
-  UPDATE_PROFILE,
   CLEAR_PROFILE,
   //ACCOUNT_DELETED,
 } from './types';
@@ -102,58 +101,7 @@ export const createProfile = (
   }
 };
 
-// Add games
-export const addGames = (formData, history) => async dispatch => {
-  try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
 
-    const res = await axios.put('/api/profile/games', formData, config);
-
-    dispatch({
-      type: UPDATE_PROFILE,
-      payload: res.data
-    });
-
-    dispatch(setAlert('Game Added', 'success'));
-
-    history.push('/dashboard');
-  } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
-
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
-
-
-// Delete games
-export const deleteGames = id => async dispatch => {
-  try {
-    const res = await axios.delete(`/api/profile/games/${id}`);
-
-    dispatch({
-      type: UPDATE_PROFILE,
-      payload: res.data
-    });
-
-    dispatch(setAlert('Game Removed', 'success'));
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
 
 // // Delete account & profile
 // export const deleteAccount = () => async dispatch => {

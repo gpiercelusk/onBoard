@@ -41,6 +41,9 @@ router.post(
         .isEmpty(),
       check('location', 'Location is required')
         .not()
+        .isEmpty(),
+      check('games', 'Games are required')
+        .not()
         .isEmpty()
     ]
   ],
@@ -137,70 +140,6 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
-// @route    PUT api/profile/games
-// @desc     Add games to profile
-// @access   Private
-router.put(
-  '/games',
-  [
-    auth,
-    [
-      check('title', 'Title is required')
-        .not()
-        .isEmpty(),
-    ]
-  ],
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
 
-    const {
-      title
-    } = req.body;
-
-    const newGame = {
-      title
-    };
-
-    try {
-      const profile = await Profile.findOne({ user: req.user.id });
-
-      profile.games.unshift(newGame);
-
-      await profile.save();
-
-      res.json(profile);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
-    }
-  }
-);
-
-router.delete('/experience/:games_id', auth, async (req, res) => {
-  try {
-    const foundProfile = await Profile.findOne({ user: req.user.id });
-    const gamesIds = foundProfile.games.map(games => games._id.toString());
-    // if i dont add .toString() it returns this weird mongoose coreArray and the ids are somehow objects and it still deletes anyway even if you put /experience/5
-    const removeIndex = gamesIds.indexOf(req.params.games_id);
-    if (removeIndex === -1) {
-      return res.status(500).json({ msg: 'Server error' });
-    } else {
-      // theses console logs helped me figure it out
-      console.log('gamesIds', gamesIds);
-      console.log('typeof gamesIds', typeof gamesIds);
-      console.log('req.params', req.params);
-      console.log('removed', gamesIds.indexOf(req.params.games_id));
-      foundProfile.games.splice(removeIndex, 1);
-      await foundProfile.save();
-      return res.status(200).json(foundProfile);
-    }
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ msg: 'Server error' });
-  }
-});
 
 module.exports = router;

@@ -8,12 +8,14 @@ import { createProfile } from "../../actions/profile";
 const CreateProfile = ({ createProfile, history }) => {
   const [formData, setFormData] = useState({
     location: "",
-    status: ""
+    status: "",
+    games: "",
   });
 
   const {
     location,
-    status
+    status,
+    games
   } = formData
 
   const onChange = e =>
@@ -51,6 +53,18 @@ const CreateProfile = ({ createProfile, history }) => {
           />
           <small className='form-text'>
             City & state suggested (eg. Durham, NC)
+          </small>
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='Favorite Games'
+            name='games'
+            value={games}
+            onChange={e => onChange(e)}
+          />
+          <small className='form-text'>
+            What are your favorite board games?
           </small>
         </div>
         <input type='submit' className='btn btn-primary my-1' />

@@ -8,7 +8,8 @@ import { createProfile, getCurrentProfile } from "../../actions/profile";
 const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentProfile, history }) => {
   const [formData, setFormData] = useState({
     location: "",
-    status: ""
+    status: "",
+    games: ""
   });
 
   useEffect(() => {
@@ -17,6 +18,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
     setFormData({
       location: loading || !profile.location ? '' : profile.location,
       status: loading || !profile.status ? '' : profile.status,
+      games: loading || !profile.games ? '' : profile.games,
     });
     // eslint-disable-next-line
   }, [loading]);
@@ -24,7 +26,8 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
 
   const {
     location,
-    status
+    status,
+    games
   } = formData
 
   const onChange = e =>
@@ -62,6 +65,18 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
           />
           <small className='form-text'>
             City & state suggested (eg. Durham, NC)
+          </small>
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='Favorite Games'
+            name='games'
+            value={games}
+            onChange={e => onChange(e)}
+          />
+          <small className='form-text'>
+            What are your favorite board Games?
           </small>
         </div>
         <input type='submit' className='btn btn-primary my-1' />
