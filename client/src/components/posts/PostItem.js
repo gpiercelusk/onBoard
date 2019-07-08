@@ -33,7 +33,7 @@ const PostItem = ({
               type='button'
               className='btn btn-light'
             >
-              <i className='fas fa-thumbs-up' />{' '}
+              <i className='fas fa-hat-wizard' />{' '}
               <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
             </button>
             <button
@@ -41,7 +41,7 @@ const PostItem = ({
               type='button'
               className='btn btn-light'
             >
-              <i className='fas fa-thumbs-down' />
+              <i className='fas fa-sign-out-alt' />
             </button>
             <Link to={`/posts/${_id}`} className='btn btn-primary'>
               Discussion{' '}
