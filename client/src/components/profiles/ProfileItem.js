@@ -26,7 +26,7 @@ const ProfileItem = ({
       <ul>
         {games.slice(0, 4).map((game, index) => (
           <li key={index} className='text-primary'>
-            <i className='fas fa-check' /> {game}
+            <i className='fas fa-dice-d20' /> {game}
           </li>
         ))}
       </ul>
