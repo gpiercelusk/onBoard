@@ -8,7 +8,7 @@ const PostForm = ({ addPost }) => {
 
   return (
     <div className='post-form'>
-      <div className='bg-primary p'>
+      <div className='bg-danger p'>
         <h3>What Game, When and Where Do You Want to Play?</h3>
       </div>
       <form
