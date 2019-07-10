@@ -49,6 +49,13 @@ const PostItem = ({
                 <span className='comment-count'>{comments.length}</span>
               )}
             </Link>
+            <button
+              // onClick={() => openMap(_id)}
+              type='button'
+              className='btn btn-primary'
+            >
+              <i className='fa fa-map' />
+            </button>
             {!auth.loading && user === auth.user._id && (
               <button
                 onClick={() => deletePost(_id)}
