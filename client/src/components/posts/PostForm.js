@@ -5,6 +5,7 @@ import { addPost } from '../../actions/post';
 
 const PostForm = ({ addPost }) => {
   const [text, setText] = useState('');
+  const [address, setAddress] = useState('')
 
   return (
     <div className='post-form'>
@@ -15,10 +16,19 @@ const PostForm = ({ addPost }) => {
         className='form my-1'
         onSubmit={e => {
           e.preventDefault();
-          addPost({ text });
+          addPost({ text: text, address: address });
           setText('');
+          setAddress('');
         }}
       >
+        <input
+          name="address"
+          type='text'
+          placeholder="Address"
+          value={address}
+          onChange={e => setAddress(e.target.value)}
+          required
+       />
         <textarea
           name='text'
           cols='30'
