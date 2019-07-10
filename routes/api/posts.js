@@ -33,8 +33,7 @@ router.post(
         text: req.body.text,
         name: user.name,
         avatar: user.avatar,
-        // gameLocation: post.location,
-        // game:post.location,
+        address: req.body.address,
         user: req.user.id
       });
 
