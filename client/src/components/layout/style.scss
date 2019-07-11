@@ -1,0 +1,103 @@
+$colors: (
+    dark-red: #A12824,
+    off-black: #343434,
+    main-yellow: #FDDD33,
+    white: #fff,
+    // red-yel-gradient: linear-gradient(to bottom right, #A12824, #FDDD33)
+);
+    
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+}
+
+$queries: (
+    phone: "only screen and (max-width : 425px)",
+    tablet: "only screen and (max-width : 768px)",
+    computer: "only screen and (max-width : 1024px)",
+    4k:  "only screen and (min-width : 1024px)"
+);
+
+@function responsive($query-size) {
+    @return map-get($queries, $query-size);
+}
+
+body, html {
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+body {
+    box-sizing: border-box;
+    color: color(off-black);
+    font-family: Avenir, sans-serif;
+    background-image: url('/client/src/components/layout/games.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+        .bg-image {
+            clip-path: polygon(100% 0, 100% 43%, 100% 83%, 93% 100%, 39% 100%, 45% 50%, 0 0);
+            background-color: color(dark-red);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+        }
+}
+
+li, a {
+    list-style: none;
+    text-decoration: none;
+    color: color(white);
+    text-shadow: 0 4px 8px color(off-black);
+}
+
+ul {
+    display: none;
+}
+#root {
+    display: block;
+    height: 100vh;
+    width: 100%;
+}
+.navbar {
+    display: none;
+}
+.landing {
+    padding-top: 5vh; 
+    color: color(white);
+    text-shadow: 0 4px 8px color(off-black);
+}
+
+.buttons {
+    display: grid;
+    padding-top: 10vh;
+    grid-row-gap: 30px;
+}
+
+.btn {
+    margin: 0 auto;
+    width: 50vw;
+    box-shadow: 0 4px 8px color(off-black);
+    border-radius: 8px;
+    text-shadow: 0 0 0;
+    margin-top: 10vh;
+}
+.btn:first-child {
+    background-color: color(dark-red);
+    padding: 4px;
+        
+}
+
+.btn:last-child {
+    border: solid 3px color(main-yellow);
+    color: color(off-black);
+    background-color: color(white);
+}
+
+.btn:hover {
+    background-color: color(main-yellow);
+    color: color(off-black);
+    transition: 300ms;
+}
