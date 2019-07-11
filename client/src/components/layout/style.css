@@ -44,7 +44,7 @@ ul {
 }
 
 .navbar {
-  display: none;
+  display: block;
 }
 
 .landing {
