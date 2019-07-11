@@ -37,6 +37,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
+      <div className="bg-image"></div>
       <Router>
         <Fragment>
           <Navbar />
