@@ -14,9 +14,22 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
-  name: {
-    type: String
+  numberofplayers: {
+    type: Number,
+    required: true
   },
+  listofplayers: [
+    {
+      id: {
+        type: String,
+        required: true
+    },
+      name: {
+        type: String,
+        required: true
+      }
+  }
+  ],
   avatar: {
     type: String
   },
