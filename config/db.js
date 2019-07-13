@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = process.env.mongoDB_URI || "mongodb://localhost/onBoard";
+const db = process.env.MONGODB_URI || "mongodb://localhost/onBoard";
 
 const connectDB = async () => {
   try {
