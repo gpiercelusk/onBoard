@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const config = require('config');
 const db = process.env.mongoURI || "mongodb://localhost/onBoard";
 
 const connectDB = async () => {
