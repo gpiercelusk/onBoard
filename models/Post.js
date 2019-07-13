@@ -6,6 +6,10 @@ const PostSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
+  game: {
+    type: String,
+    required: true
+  },
   text: {
     type: String,
     required: true
@@ -14,9 +18,22 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
-  name: {
-    type: String
+  numPlayers: {
+    type: Number,
+    required: true
   },
+  listofplayers: [
+    {
+      id: {
+        type: String,
+        required: true
+    },
+      name: {
+        type: String,
+        required: true
+      }
+  }
+  ],
   avatar: {
     type: String
   },
