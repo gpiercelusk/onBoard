@@ -24,6 +24,7 @@ const PostForm = ({ addPost }) => {
           setAddress('');
           setGameDate('');
           setNumPlayers('');
+          setGame('');
         }}
       >
         <input
