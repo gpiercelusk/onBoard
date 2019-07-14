@@ -22,6 +22,14 @@ const PostSchema = new Schema({
     type: Number,
     required: true
   },
+  gameDate: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
   listofplayers: [
     {
       id: {

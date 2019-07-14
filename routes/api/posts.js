@@ -36,7 +36,8 @@ router.post(
         numPlayers: req.body.numPlayers,
         avatar: user.avatar,
         address: req.body.address,
-        user: req.user.id
+        user: req.user.id,
+        gameDate: req.body.gameDate
       });
 
       const post = await newPost.save();
