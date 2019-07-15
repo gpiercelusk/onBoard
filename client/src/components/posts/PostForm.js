@@ -34,7 +34,10 @@ const PostForm = ({ addPost }) => {
           value={game}
           onChange={e => setGame(e.target.value)}
           required
-       /> <br />
+        />
+        <small className='form-text'>
+          What game do you want to play?
+        </small> <br />
         <input
           name="address"
           type='text'
@@ -42,7 +45,10 @@ const PostForm = ({ addPost }) => {
           value={address}
           onChange={e => setAddress(e.target.value)}
           required
-       /> <br />
+        /> 
+        <small className='form-text'>
+          Where do you want to meet up?
+        </small><br />
         <input
           name="date"
           type='date'
@@ -50,9 +56,13 @@ const PostForm = ({ addPost }) => {
           value={gameDate}
           onChange={e => setGameDate(e.target.value)}
           required
-       /> <br />
-       <select name="numPlayers" value={numPlayers} onChange={e => setNumPlayers(e.target.value)}>
+        />
+        <small className='form-text'>
+          What day is this taking place?
+        </small> <br />
+        <select name="numPlayers" value={numPlayers} onChange={e => setNumPlayers(e.target.value)}>
           <option value="0">Number of players</option>
+          <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
@@ -61,7 +71,10 @@ const PostForm = ({ addPost }) => {
           <option value="7">7</option>
           <option value="8">8</option>
           <option value="9">9 or more</option>
-        </select> <br />
+        </select> 
+        <small className='form-text'>
+          How many other players can come?
+        </small><br />
         <textarea
           name='text'
           cols='30'
@@ -72,6 +85,7 @@ const PostForm = ({ addPost }) => {
           required
         />
         
+
         <input type='submit' className='btn btn-dark my-1' value='Submit' />
       </form>
     </div>
