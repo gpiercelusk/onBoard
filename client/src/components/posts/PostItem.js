@@ -10,8 +10,9 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth,
-  post: { _id, text, name, avatar, user, likes, comments, date, game, numPlayers, address },
+  post: { _id, text, name, avatar, user, likes, comments, date, game, numPlayers, address, gameDate },
   showActions
+  
 }) => (
     <div className='post bg-white p-1 my-1'>
       <div>
@@ -21,12 +22,14 @@ const PostItem = ({
         </Link>
       </div>
       <div>
-        <p className='my-1'>{text}</p>
-        <p className='my-1'>{game}</p>
-        <p className='my-1'>{address}</p>
-        <p className='my-1'>{numPlayers}</p>
+        <h3 className='my-1'>Game: {game}</h3>
+        <span><b>Date: </b></span><span className='my-1'><Moment format='MM/DD/YYYY'>{gameDate}</Moment></span><br />
+        <span><b>Location: </b></span><span className='my-1'>{address}</span><br />
+        <span><b>Number of Players: </b></span><span className='my-1'>{numPlayers}</span>
+        <p className='my-1'><b>Description: </b><br />{text}</p>
+        
         <p className='post-date'>
-          Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
+          Posted on <Moment format='MM/DD/YYYY'>{date}</Moment>
         </p>
 
         {showActions && (
@@ -52,13 +55,13 @@ const PostItem = ({
                 <span className='comment-count'>{comments.length}</span>
               )}
             </Link>
-            <button
+            {/* <button
               // onClick={() => openMap(_id)}
               type='button'
               className='btn btn-primary'
             >
               <i className='fa fa-map' />
-            </button>
+            </button> */}
             {!auth.loading && user === auth.user._id && (
               <button
                 onClick={() => deletePost(_id)}
