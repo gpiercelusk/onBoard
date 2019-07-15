@@ -56,7 +56,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     const errors = err.response.data.errors;
 
     if (errors) {
-      errors.forEach(error => dispatch(setAlert(err.msg, 'danger')))
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
     }
 
     dispatch({
