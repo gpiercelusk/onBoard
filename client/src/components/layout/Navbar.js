@@ -9,10 +9,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Players</Link>
+        <Link to='/profiles'>
+          <i className="fas fa-users" />{' '}
+          Players</Link>
       </li>
       <li>
-        <Link to='/posts'>Posts</Link>
+        <Link to='/posts'>
+        <i className="fas fa-sticky-note" />{' '}Posts</Link>
       </li>
       <li>
         <Link to='/dashboard'>
@@ -32,13 +35,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to='/profiles'>Players</Link>
+        <Link to='/profiles'>
+        <i className="fas fa-users" />{' '}Players</Link>
       </li>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link to='/register'>
+        <i class="fas fa-clipboard"></i>{' '}Register</Link>
       </li>
       <li>
-        <Link to='/login'>Login</Link>
+        <Link to='/login'>
+        <i class="fas fa-sign-in-alt"></i>{' '}Login</Link>
       </li>
     </ul>
   );

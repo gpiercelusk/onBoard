@@ -39,11 +39,11 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Create Your Profile</h1>
+      <h1 className='large text-primary'>Update Your Profile</h1>
       <p className='lead'>
-        <i className='fas fa-user' /> Let's get some information to get you playing ASAP
+        <i className='fas fa-user' /> Feel free to update your information!
       </p>
-      <small>* = required field</small>
+      <small>All fields required</small>
       <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <select name='status' value={status} onChange={e => onChange(e)}>
@@ -64,7 +64,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-            City & state suggested (eg. Durham, NC)
+            City & State (eg. Durham, NC)
           </small>
         </div>
         <div className='form-group'>
@@ -76,11 +76,12 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             onChange={e => onChange(e)}
           />
           <small className='form-text'>
-            What are your favorite board Games?
+            What are your favorite board games? (eg. Dungeons & Dragons, Monopoly, Scrabble)
           </small>
         </div>
         <input type='submit' className='btn btn-primary my-1' />
-        <Link className='btn btn-light my-1' to='/dashboard'>
+        <Link className='btn btn-dark my-1' to='/dashboard'>
+        <i class="fas fa-arrow-left"></i>{' '}
           Go Back
         </Link>
       </form>
