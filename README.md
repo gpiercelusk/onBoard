@@ -13,6 +13,7 @@ Some of the standout features of the project are
     5. Users can also see the players, what games they are interested in and locations.
 
 # Deployed Site
-[#### onBoard on Heroku](https://quiet-fortress-68299.herokuapp.com/)
+[onBoard on Heroku](https://quiet-fortress-68299.herokuapp.com/)
 
 # Demonstration of key functionalities
+
