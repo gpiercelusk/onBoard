@@ -12,7 +12,7 @@ const PostItem = ({
   auth,
   post: { _id, text, name, avatar, user, likes, comments, date, game, numPlayers, address, gameDate },
   showActions
-  
+
 }) => (
     <div className='post bg-white p-1 my-1'>
       <div>
@@ -27,7 +27,7 @@ const PostItem = ({
         <span><b>Location: </b></span><span className='my-1'>{address}</span><br />
         <span><b>Number of Players: </b></span><span className='my-1'>{numPlayers}</span>
         <p className='my-1'><b>Description: </b><br />{text}</p>
-        
+
         <p className='post-date'>
           Posted on <Moment format='MM/DD/YYYY'>{date}</Moment>
         </p>
@@ -55,13 +55,14 @@ const PostItem = ({
                 <span className='comment-count'>{comments.length}</span>
               )}
             </Link>
-            {/* <button
-              // onClick={() => openMap(_id)}
+            <a href = {`https://www.google.com/maps/search/?api=1&query=${address}`} target="__blank" title="Open Map">
+            <button
               type='button'
               className='btn btn-primary'
             >
               <i className='fa fa-map' />
-            </button> */}
+            </button>
+            </a>
             {!auth.loading && user === auth.user._id && (
               <button
                 onClick={() => deletePost(_id)}
