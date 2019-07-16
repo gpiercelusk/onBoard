@@ -13,7 +13,103 @@ Some of the standout features of the project are
     5. Users can also see the players, what games they are interested in and locations.
 
 # Deployed Site
-[onBoard on Heroku](https://quiet-fortress-68299.herokuapp.com/)
+## [onBoard](https://quiet-fortress-68299.herokuapp.com/)
 
 # Demonstration of key functionalities
 
+### GIF walktrhough of the app:
+
+![](screenshots/onBoard.gif)
+
+
+
+### Screenshots of the app:
+
+Landing page
+![landing page](screenshots/landingpage.png "The Landing Page")
+
+Signup/Signup page
+![](screenshots/signup.png) 
+
+![](screenshots/signin.png) 
+
+Dashboard
+![](screenshots/dashboard.png) 
+
+Posts page
+![](screenshots/posts1.png) 
+
+![](screenshots/posts2.png) 
+
+Players
+![](screenshots/players.png) 
+
+Single Player Profile
+![](screenshots/player.png) 
+
+Update Profile
+![](screenshots/updateprofile.png) 
+
+Discussions
+![](screenshots/discussion.png) 
+
+Location on Google Maps
+![](screenshots/map.png)
+
+
+
+
+
+
+
+
+# Technologies Used
+
+## Front-end
+
+* HTML5
+* CSS3
+* SCSS
+* React.js
+* Redux
+* Javascript
+* Ajax
+* Moment.js
+
+## Back-end
+
+* Node.js
+* Express.js
+* Axios.js
+* MongoDB
+
+# APIs Used:
+
+* Google Maps
+
+# How to use the app
+You can fork the app or you can git-clone the app into your local machine. Once done that, please install all the dependencies by running 
+
+`$ git clone https://github.com/gpiercelusk/onBoard`
+
+`$ cd onBoard`
+
+Install project dependencies:
+
+`$ npm install`
+
+Start the app:
+
+`$ npm start`
+
+# Contributors
+
+* [Andrew Hennesen](https://github.com/AHennesen)
+* [Deyon Shannon](https://github.com/dvshannon)
+* [Bryant Coggins](https://github.com/bcoggins78)
+* [Prasen Gope](https://github.com/prasengope)
+* [Pierce Lusk](https://github.com/gpiercelusk)
+
+
+# License
+MIT
